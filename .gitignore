@@ -1,0 +1,40 @@
+# Environnement virtuel
+.venv/
+venv/
+ENV/
+env/
+
+# Fichiers Python compilés
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Fichiers de logs
+*.log
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Fichiers de configuration d’IDE
+.vscode/
+.idea/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Dépendances (si tu utilises poetry, par exemple)
+poetry.lock
+*.egg-info/
+dist/
+build/
+
+# Fichiers de tests ou de coverage
+htmlcov/
+.coverage
+coverage.xml
+.pytest_cache/
+
+# Secrets potentiels (à utiliser avec précaution)
+.env
+.env.*
