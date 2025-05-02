@@ -1,0 +1,10 @@
+streamlit
+chromadb
+scikit-learn
+hdbscan
+numpy
+pandas
+matplotlib
+plotly
+umap-learn
+sentence-transformers
