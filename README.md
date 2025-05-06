@@ -2,7 +2,7 @@
 
 An interactive Streamlit application to explore, visualize, and analyze high-dimensional vector spaces derived from text documents, with a focus on the aeronautics domain.
 
-## Features
+## Next Features
 
 - Convert documents to embeddings & store with ChromaDB
 - Import & manage vector databases
