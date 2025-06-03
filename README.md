@@ -6,8 +6,6 @@ An interactive Streamlit application to explore, visualize, and analyze high-dim
 
 - Convert documents to embeddings & store with ChromaDB
 - Import & manage vector databases
-- Compute vector space metrics
-- Visualize in 2D/3D using PCA, TSNE, UMAP
 - Cluster vectors using KMeans, HDBSCAN
 - Search for nearest neighbors of new queries
 
