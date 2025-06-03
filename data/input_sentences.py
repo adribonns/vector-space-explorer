@@ -19,7 +19,7 @@ INPUT_SENTENCES = [
     "Aviation weather radar helps pilots detect storms and turbulence to navigate safely around hazardous conditions.",
     "The air traffic control system ensures that airplanes maintain safe distances and avoid collisions in the sky.",
     "Airplanes are designed to maintain stability, even in strong winds or turbulence, by using advanced aerodynamics.",
-    "Flight data monitoring systems continuously track an aircraft’s performance to optimize fuel efficiency and safety."
+    "Flight data monitoring systems continuously track an aircraft’s performance to optimize fuel efficiency and safety.",
     "The air conditioning system in an aircraft maintains a comfortable temperature and humidity for passengers and crew.",
     "The pressurization system ensures that the cabin remains at a safe and comfortable pressure at high altitudes.",
     "Aircraft are equipped with bleed air systems that take compressed air from the engines to power various systems like cabin pressurization.",

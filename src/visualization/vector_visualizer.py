@@ -1,33 +1,50 @@
-"""
-Visualization Module - 2D and 3D visualizations using PCA, UMAP, TSNE.
-"""
-
-import umap
+import pandas as pd
+import plotly.express as px
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
-import plotly.express as px
-import pandas as pd
+import umap.umap_ as umap
 
-def pca_3d(vectors, labels=None):
-    pca = PCA(n_components=3)
+def pca_visualize(vectors, labels=None, dim=2):
+    pca = PCA(n_components=dim)
     reduced = pca.fit_transform(vectors)
-    df = pd.DataFrame(reduced, columns=["x", "y", "z"])
+    cols = ["x", "y", "z"][:dim]
+    df = pd.DataFrame(reduced, columns=cols)
     if labels is not None:
         df["label"] = labels
-    return px.scatter_3d(df, x="x", y="y", z="z", color="label" if labels is not None else None)
+    if dim == 3:
+        fig = px.scatter_3d(df, x="x", y="y", z="z", color="label" if labels is not None else None,
+                            width=900, height=700)
+    else:
+        fig = px.scatter(df, x="x", y="y", color="label" if labels is not None else None,
+                         width=900, height=700)
+    return fig
 
-def tsne_2d(vectors, labels=None):
-    tsne = TSNE(n_components=2)
+def tsne_visualize(vectors, labels=None, dim=2):
+    tsne = TSNE(n_components=dim, init="random", random_state=42)
     reduced = tsne.fit_transform(vectors)
-    df = pd.DataFrame(reduced, columns=["x", "y"])
+    cols = ["x", "y", "z"][:dim]
+    df = pd.DataFrame(reduced, columns=cols)
     if labels is not None:
         df["label"] = labels
-    return px.scatter(df, x="x", y="y", color="label" if labels is not None else None)
+    if dim == 3:
+        fig = px.scatter_3d(df, x="x", y="y", z="z", color="label" if labels is not None else None,
+                            width=900, height=700)
+    else:
+        fig = px.scatter(df, x="x", y="y", color="label" if labels is not None else None,
+                         width=900, height=700)
+    return fig
 
-def umap_2d(vectors, labels=None):
-    reducer = umap.UMAP(n_components=2)
+def umap_visualize(vectors, labels=None, dim=2):
+    reducer = umap.UMAP(n_components=dim, random_state=42)
     reduced = reducer.fit_transform(vectors)
-    df = pd.DataFrame(reduced, columns=["x", "y"])
+    cols = ["x", "y", "z"][:dim]
+    df = pd.DataFrame(reduced, columns=cols)
     if labels is not None:
         df["label"] = labels
-    return px.scatter(df, x="x", y="y", color="label" if labels is not None else None)
+    if dim == 3:
+        fig = px.scatter_3d(df, x="x", y="y", z="z", color="label" if labels is not None else None,
+                            width=900, height=700)
+    else:
+        fig = px.scatter(df, x="x", y="y", color="label" if labels is not None else None,
+                         width=900, height=700)
+    return fig
