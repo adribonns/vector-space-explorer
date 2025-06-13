@@ -41,3 +41,12 @@ INPUT_SENTENCES = [
     "Aircraft control surfaces are designed to provide aerodynamic efficiency while allowing the pilot to control the pitch, roll, and yaw.",
     "The trim system helps the pilot adjust the flight control surfaces to ensure the aircraft maintains stable flight at a constant attitude."
 ]
+
+EXAMPLE_SENTENCES = [
+    "Hello World",
+    "I love NBA",
+    "HPV belongs to Aircraft System ATA 36",
+    "HPV stands for High Pressure Valve",
+    "MLG stands for Main Landing Gear",
+    "Landing gear is typically powered by hydraulics",
+]

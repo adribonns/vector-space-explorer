@@ -4,12 +4,18 @@ from pathlib import Path
 from sentence_transformers import SentenceTransformer
 from src.metrics.vector_metrics import compute_sparsity, average_norm, mean_cosine_similarity, vector_space_dimension, variance_per_dimension
 from src.visualization.vector_visualizer import pca_visualize, tsne_visualize, umap_visualize
-from data.input_sentences import INPUT_SENTENCES
+from data.input_sentences import INPUT_SENTENCES, EXAMPLE_SENTENCES
 
 st.set_page_config(layout="wide")
 st.title("🚀 Vector Space Explorer")
-
-sentences = INPUT_SENTENCES
+st.markdown("---")
+sentences_input = st.sidebar.selectbox("Choose input sentences", ["example", "aircraft"])
+user_text = st.sidebar.text_area("✍️ Add your own sentence", "")
+sentences = EXAMPLE_SENTENCES
+if sentences_input == "aircraft":
+    sentences = INPUT_SENTENCES
+if user_text.strip():
+    sentences.append(user_text.strip())
 # Embedding
 model_name = st.sidebar.selectbox("Choose embedding model", ["all-MiniLM-L6-v2", "all-mpnet-base-v2"])
 model = SentenceTransformer(model_name)
@@ -28,7 +34,7 @@ with st.expander("Show variance per dimension"):
 
 st.subheader("📈 Visualization")
 method = st.sidebar.selectbox("Select the reduction method", ["PCA", "t-SNE", "UMAP"])
-dim = st.sidebar.radio("Select the reduction dimension", [2, 3])
+dim = st.sidebar.radio("Select the reduction dimension", [3, 2])
 
 if method == "PCA":
     fig = pca_visualize(embeddings, sentences, dim=dim)
